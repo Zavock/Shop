@@ -2,10 +2,14 @@ import React, { useContext } from 'react';
 import {ShopContext} from '../../Context';
 
 
-const Card = ({category, image, title, price}) => {
-  const {count, setCount, openProductDetail} = useContext(ShopContext);
+const Card = ({category, image, title, price, description}) => {
+  const {count, setCount, openProductDetail, setProductToShow} = useContext(ShopContext);
+  const showProduct = (details) => {
+    openProductDetail()
+    setProductToShow(details)
+  }
   return (
-    <div onClick={() => openProductDetail()} className='bg-white cursor-pointer w-56 h-60 rounded-lg border shadow-xl p-3'>
+    <div onClick={() => showProduct({category, image, title, price, description})} className='bg-white cursor-pointer w-56 h-60 rounded-lg border shadow-xl p-3'>
       <figure className='relative mb-2 w-full h-4/5'>
         <span className='absolute bottom-0 left-0 bg-white/75 rounded-lg text-black text-sm shadow-lg m-2 px-3 py-0.5'>{category}</span>
         <img className='w-full h-full object-cover rounded-lg ' src={image} alt={category}></img>
