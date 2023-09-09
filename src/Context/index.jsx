@@ -9,6 +9,7 @@ const ShopProvider = ({children}) => {
   const openProductDetail = () => setIsProductDetailOpen(true);
   const closeProductDetail = () => setIsProductDetailOpen(false);
   const [productToShow, setProductToShow] = useState({});
+  const [shopCart, setShopCart] = useState([]);
 
   return (
     <ShopContext.Provider value={{
@@ -18,7 +19,9 @@ const ShopProvider = ({children}) => {
       closeProductDetail,
       isProductDetailOpen,
       setProductToShow,
-      productToShow
+      productToShow,
+      setShopCart,
+      shopCart
     }}>
       {children}
     </ShopContext.Provider>
