@@ -1,12 +1,14 @@
 import React, {useContext} from 'react';
 import {ShopContext} from '../../Context';
+import OrderCard from '../OrderCard';
 
 const CheckoutDetail = () => {
 
-  const {isCheckoutDetailOpen, closeCheckoutDetail} = useContext(ShopContext);
+  const {isCheckoutDetailOpen, closeCheckoutDetail, shopCart} = useContext(ShopContext);
+  console.log('Cart: ', shopCart)
 
   return (
-    <aside className={`${isCheckoutDetailOpen ? 'flex' : 'hidden'} flex-col top-[68px] shadow-2xl fixed right-0 border bg-white border-black rounded-lg w-[360px] h-[calc(100vh-68px)] z-10`}>
+    <aside className={`${isCheckoutDetailOpen ? 'flex' : 'hidden'} flex-col top-[68px] shadow-2xl overflow-auto fixed right-0 border bg-white border-black rounded-lg w-[360px] h-[calc(100vh-68px)] z-10`}>
       <div className='flex justify-between items-center p-6'>
         <h2 className='font-medium text-xl'>My Order</h2>
         <button onClick={() => closeCheckoutDetail()}>
@@ -15,6 +17,14 @@ const CheckoutDetail = () => {
           </svg>
         </button>
       </div>
+      <div className='flex flex-col px-3 gap-5'>
+        {
+          shopCart.map((product) => (
+            <OrderCard key={product.id} {...product} />
+          ))
+        }
+      </div>
+      
     </aside>
 
 
