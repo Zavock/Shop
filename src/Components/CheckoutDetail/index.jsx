@@ -4,8 +4,11 @@ import OrderCard from '../OrderCard';
 
 const CheckoutDetail = () => {
 
-  const {isCheckoutDetailOpen, closeCheckoutDetail, shopCart} = useContext(ShopContext);
-  console.log('Cart: ', shopCart)
+  const {isCheckoutDetailOpen, closeCheckoutDetail, shopCart, setShopCart} = useContext(ShopContext);
+  const handleChandeDelete = (id) => {
+    const filteredProducts = shopCart.filter(product => product.id != id)
+    setShopCart(filteredProducts)
+  }
 
   return (
     <aside className={`${isCheckoutDetailOpen ? 'flex' : 'hidden'} flex-col top-[68px] shadow-2xl overflow-auto fixed right-0 border bg-white border-black rounded-lg w-[360px] h-[calc(100vh-68px)] z-10`}>
