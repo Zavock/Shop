@@ -3,16 +3,19 @@ import {ShopContext} from '../../Context';
 
 
 const Card = ({category, image, title, price, description}) => {
-  const {count, setCount, openProductDetail, setProductToShow, setShopCart, shopCart} = useContext(ShopContext);
+  const {count, setCount, openProductDetail, openCheckoutDetail, closeCheckoutDetail, closeProductDetail, setProductToShow, setShopCart, shopCart} = useContext(ShopContext);
 
   const showProduct = (details) => {
     openProductDetail()
     setProductToShow(details)
+    closeCheckoutDetail()
   }
 
   const addProductToCart = (productData) => {
     setCount(count + 1)
+    openCheckoutDetail()
     setShopCart([...shopCart, productData])
+    closeProductDetail()
     console.log('Cart: ', shopCart)
   }
 
