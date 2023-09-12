@@ -16,16 +16,21 @@ const CheckoutDetail = () => {
           </svg>
         </button>
       </div>
-      <div className='flex flex-col px-3 gap-5'>
+      <div className='flex flex-col px-3 gap-5 flex-1'>
         {
           shopCart.map((product) => (
             <OrderCard key={product.id} {...product} />
           ))
         }
       </div>
-      <div className='flex gap-2 justify-between px-3 mt-3 items-center'>
-        <span className='font-light text-xl'>Total:</span>
-        <span className='font-semibold text-2xl'>${Math.trunc(sumTotalPrice(shopCart))}</span>
+      <div className='px-3 mb-5 mt-2 items-center'>
+        <p className='flex justify-between mb-2'>
+          <span className='font-light text-xl'>Total:</span>
+          <span className='font-semibold text-2xl'>${Math.trunc(sumTotalPrice(shopCart))}</span>
+        </p>
+        <button className='bg-black text-white py-3 w-full rounded-lg transition duration-300 hover:bg-white hover:text-black hover:border hover:border-black'>
+          Checkout
+        </button>
       </div>
     </aside>
   );

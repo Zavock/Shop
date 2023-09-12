@@ -21,8 +21,8 @@ const OrderCard = ({ image, title, price, id, quantity }) => {
         <figure className='h-20 w-20'>
           <img className='w-full h-full object-contain' src={image} alt='' />
         </figure>
-        <div className='flex flex-col w-[10rem] gap-2'>
-            <span className='text-base font-light truncate'>{title}</span>
+        <div className='flex flex-col  gap-2'>
+            <span className='text-base font-light line-clamp-1'>{title}</span>
             <div className='flex items-center gap-1 border w-fit px-3 rounded-lg'>
               <span>{quantity}</span>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4">
