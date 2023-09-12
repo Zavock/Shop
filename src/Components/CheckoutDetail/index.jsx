@@ -23,13 +23,12 @@ const CheckoutDetail = () => {
           ))
         }
       </div>
-      <span>Total:</span>
-      <span>{Math.trunc(sumTotalPrice(shopCart))}</span>
+      <div className='flex gap-2 justify-between px-3 mt-3 items-center'>
+        <span className='font-light text-xl'>Total:</span>
+        <span className='font-semibold text-2xl'>${Math.trunc(sumTotalPrice(shopCart))}</span>
+      </div>
     </aside>
-
-
   );
-  
 }
 
 export default CheckoutDetail;
