@@ -1,14 +1,10 @@
 import React, {useContext} from 'react';
 import {ShopContext} from '../../Context';
 import OrderCard from '../OrderCard';
+import { sumTotalPrice } from '../../Utils';
 
 const CheckoutDetail = () => {
-
-  const {isCheckoutDetailOpen, closeCheckoutDetail, shopCart, setShopCart} = useContext(ShopContext);
-  const handleChandeDelete = (id) => {
-    const filteredProducts = shopCart.filter(product => product.id != id)
-    setShopCart(filteredProducts)
-  }
+  const {isCheckoutDetailOpen, closeCheckoutDetail, shopCart} = useContext(ShopContext);
 
   return (
     <aside className={`${isCheckoutDetailOpen ? 'flex' : 'hidden'} flex-col top-[68px] shadow-2xl overflow-auto fixed right-0 border bg-white border-black rounded-lg w-[360px] h-[calc(100vh-68px)] z-10`}>
@@ -27,7 +23,8 @@ const CheckoutDetail = () => {
           ))
         }
       </div>
-      
+      <span>Total:</span>
+      <span>{sumTotalPrice(shopCart)}</span>
     </aside>
 
 
