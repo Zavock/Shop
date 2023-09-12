@@ -5,10 +5,18 @@ import { sumTotalPrice } from '../../Utils';
 import { Link } from 'react-router-dom';
 
 const CheckoutDetail = () => {
-  const {isCheckoutDetailOpen, closeCheckoutDetail, setShopCart, shopCart, setOrder, order, setCount} = useContext(ShopContext);
-
+  const {isCheckoutDetailOpen, closeCheckoutDetail, setShopCart, shopCart, setOrder, order, setCount, count} = useContext(ShopContext);
+  const handleChandeDelete = (id, quantity) => {
+    const filteredProducts = shopCart.filter(product => product.id != id)
+    const filterQuantity = shopCart.filter(product => product.quantity > 1)
+    setShopCart(filteredProducts)
+    if (filterQuantity) {
+      setCount(count - quantity)
+    }else {
+      setCount(count - 1)
+    }
+  }
   const handleCheckout = () => {
-    
     const orderToAdd = {
       date: Date.now(),
       products: shopCart,
@@ -34,7 +42,7 @@ const CheckoutDetail = () => {
       <div className='flex flex-col px-3 gap-5 flex-1'>
         {
           shopCart.map((product) => (
-            <OrderCard key={product.id} {...product} />
+            <OrderCard key={product.id} {...product} handleChandeDelete={handleChandeDelete}/>
           ))
         }
       </div>

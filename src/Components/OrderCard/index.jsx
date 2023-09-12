@@ -1,20 +1,6 @@
 import React, {useContext} from 'react';
-import {ShopContext} from '../../Context';
 
-const OrderCard = ({ image, title, price, id, quantity }) => {
-  const {shopCart, setShopCart, count, setCount} = useContext(ShopContext);
-
-  const handleChandeDelete = (id, quantity) => {
-    const filteredProducts = shopCart.filter(product => product.id != id)
-    const filterQuantity = shopCart.filter(product => product.quantity > 1)
-    setShopCart(filteredProducts)
-    if (filterQuantity) {
-      setCount(count - quantity)
-    }else {
-      setCount(count - 1)
-    }
-  }
-
+const OrderCard = ({ image, title, price, id, quantity, handleChandeDelete }) => {
   return (
     <div className='flex justify-between rounded-lg border p-2 shadow-md transition duration-300 hover:-translate-y-1'>
       <div className='flex items-center justify-center gap-3'>
