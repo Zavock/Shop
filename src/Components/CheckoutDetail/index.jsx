@@ -16,6 +16,7 @@ const CheckoutDetail = () => {
       setCount(count - 1)
     }
   }
+
   const handleCheckout = () => {
     const orderToAdd = {
       date: Date.now(),
@@ -27,6 +28,7 @@ const CheckoutDetail = () => {
     setOrder([...order, orderToAdd])
     setShopCart([])
     setCount(0)
+    closeCheckoutDetail()
   }
 
   return (
