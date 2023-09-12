@@ -20,6 +20,9 @@ const ShopProvider = ({children}) => {
   //State of product to show in section of product detail
   const [productToShow, setProductToShow] = useState({});
 
+  //State of orders
+  const [order, setOrder] = useState([]);
+
   return (
     <ShopContext.Provider value={{
       count,
@@ -33,7 +36,9 @@ const ShopProvider = ({children}) => {
       setProductToShow,
       productToShow,
       setShopCart,
-      shopCart
+      shopCart,
+      order,
+      setOrder
     }}>
       {children}
     </ShopContext.Provider>

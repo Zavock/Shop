@@ -2,9 +2,24 @@ import React, {useContext} from 'react';
 import {ShopContext} from '../../Context';
 import OrderCard from '../OrderCard';
 import { sumTotalPrice } from '../../Utils';
+import { Link } from 'react-router-dom';
 
 const CheckoutDetail = () => {
-  const {isCheckoutDetailOpen, closeCheckoutDetail, shopCart} = useContext(ShopContext);
+  const {isCheckoutDetailOpen, closeCheckoutDetail, setShopCart, shopCart, setOrder, order, setCount} = useContext(ShopContext);
+
+  const handleCheckout = () => {
+    
+    const orderToAdd = {
+      date: Date.now(),
+      products: shopCart,
+      totalProducts: shopCart.length,
+      totalPrice: Math.trunc(sumTotalPrice(shopCart))
+    }
+
+    setOrder([...order, orderToAdd])
+    setShopCart([])
+    setCount(0)
+  }
 
   return (
     <aside className={`${isCheckoutDetailOpen ? 'flex' : 'hidden'} flex-col top-[68px] shadow-2xl overflow-auto fixed right-0 border bg-white border-black rounded-lg w-[360px] h-[calc(100vh-68px)] z-10`}>
@@ -28,9 +43,12 @@ const CheckoutDetail = () => {
           <span className='font-light text-xl'>Total:</span>
           <span className='font-semibold text-2xl'>${Math.trunc(sumTotalPrice(shopCart))}</span>
         </p>
-        <button className='bg-black text-white py-3 w-full rounded-lg transition duration-300 hover:bg-white hover:text-black hover:border hover:border-black'>
-          Checkout
-        </button>
+        <Link to='/my-orders/last'>
+          <button onClick={() => handleCheckout()} className='bg-black text-white py-3 w-full rounded-lg transition duration-300 hover:bg-white hover:text-black hover:border hover:border-black'>
+            Checkout
+          </button>
+        </Link>
+        
       </div>
     </aside>
   );
