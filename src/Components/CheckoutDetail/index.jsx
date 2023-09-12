@@ -24,7 +24,7 @@ const CheckoutDetail = () => {
         }
       </div>
       <span>Total:</span>
-      <span>{sumTotalPrice(shopCart)}</span>
+      <span>{Math.trunc(sumTotalPrice(shopCart))}</span>
     </aside>
 
 

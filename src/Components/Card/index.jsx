@@ -43,7 +43,7 @@ const Card = ({category, image, title, price, description, id}) => {
       </figure>
       <p className='flex justify-between'>
         <span className='text-sm font-light truncate'>{title}</span>
-        <span className='text-lg font-medium'>${price}</span>
+        <span className='text-lg font-medium'>${Math.trunc(price)}</span>
       </p>
     </div>
   );
