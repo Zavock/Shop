@@ -8,14 +8,19 @@ const MyOrders = () => {
   const {order} = useContext(ShopContext);
   return (
     <Layout>
-      My Orders
-      {
-        order.map((orders, index) => (
-          <Link key={index} to={`/my-orders/${index}`}>
-            <OrdersCard {...orders} />
-          </Link>
-        ))
-      }
+      <div className='mb-2'>
+        <h1>My Orders</h1> 
+      </div>
+      
+      <div className='flex flex-col gap-3'>
+        {
+          order.map((orders, index) => (
+            <Link key={index} to={`/my-orders/${index}`}>
+              <OrdersCard {...orders} />
+            </Link>
+          ))
+        }
+      </div>
     </Layout>
   );
 }
