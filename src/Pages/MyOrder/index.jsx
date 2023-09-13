@@ -6,6 +6,9 @@ import {ShopContext} from '../../Context';
 
 const MyOrder = () => {
   const {order} = useContext(ShopContext);
+  const pathSplitted = window.location.pathname.split('/');
+  const orderId = pathSplitted[pathSplitted.length - 1];
+
   return (
     <Layout>
       <div className='flex items-center relative w-80 justify-center'>
@@ -21,9 +24,18 @@ const MyOrder = () => {
       
       <div className='flex flex-col px-3 gap-5 flex-1 w-[31rem] mt-3'>
         {
-          order?.slice(-1)[0].products.map((product) => (
-            <OrderCard key={product.id} {...product} />
-          ))
+          orderId === 'last' ?
+          (
+            order?.slice(-1)[0].products.map((product) => (
+              <OrderCard key={product.id} {...product} />
+            ))
+          )
+          :
+          (
+            order?.[orderId]?.products.map((product) => (
+              <OrderCard key={product.id} {...product} />
+            ))
+          )
         }
       </div>
     </Layout>

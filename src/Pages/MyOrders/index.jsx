@@ -11,7 +11,7 @@ const MyOrders = () => {
       My Orders
       {
         order.map((orders, index) => (
-          <Link key={index} to={`/my-orders/${orders.id}`}>
+          <Link key={index} to={`/my-orders/${index}`}>
             <OrdersCard {...orders} />
           </Link>
         ))
