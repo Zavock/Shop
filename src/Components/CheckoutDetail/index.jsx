@@ -18,8 +18,9 @@ const CheckoutDetail = () => {
   }
 
   const handleCheckout = () => {
+    const dateNow = new Date()
     const orderToAdd = {
-      date: Date.now(),
+      date: dateNow.toLocaleDateString(),
       products: shopCart,
       totalProducts: shopCart.length,
       totalPrice: Math.trunc(sumTotalPrice(shopCart))
