@@ -30,6 +30,9 @@ const ShopProvider = ({children}) => {
   //Get products by title
   const [searchByTitle, setSearchByTitle] = useState('');
 
+  //Get products by category
+  const [searchByCategory, setSearchByCategory] = useState('');
+
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then(res=>res.json())
@@ -42,6 +45,10 @@ const ShopProvider = ({children}) => {
     return products?.filter(product => product.title.toLowerCase().includes(searchByTitle.toLowerCase()))
   }
 
+  const filteredProductsByCategory = (products, searchByCategory) => {
+    return products?.filter(product => product.category.toLowerCase().includes(searchByCategory.toLowerCase()))
+  }
+
   useEffect(() => {
     if (searchByTitle.length > 0) {
       setFilteredProducts(filteredProductsByTitle(products, searchByTitle));
@@ -49,6 +56,14 @@ const ShopProvider = ({children}) => {
       setFilteredProducts(products);
     }
   }, [products, searchByTitle]);
+
+  useEffect(() => {
+    if (searchByCategory === null) {
+      setFilteredProducts(products);
+    } else {
+      setFilteredProducts(filteredProductsByCategory(products, searchByCategory));
+    }
+  }, [products, searchByCategory]);
 
   return (
     <ShopContext.Provider value={{
@@ -70,7 +85,9 @@ const ShopProvider = ({children}) => {
       setProducts,
       searchByTitle,
       setSearchByTitle,
-      filteredProducts
+      filteredProducts,
+      searchByCategory,
+      setSearchByCategory
     }}>
       {children}
     </ShopContext.Provider>
