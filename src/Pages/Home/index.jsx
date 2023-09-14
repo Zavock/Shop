@@ -7,7 +7,7 @@ import {ShopContext} from '../../Context';
 const Home = () => {
   const {setSearchByTitle, filteredProducts} = useContext(ShopContext)
   const pathSplitted = window.location.pathname.split('/');
-  const categoryId = pathSplitted[pathSplitted.length - 1];
+  let categoryId = pathSplitted[pathSplitted.length - 1];
   
   return (
     <Layout>
@@ -17,9 +17,18 @@ const Home = () => {
       <input type='text' placeholder='Search product' className='rounded-lg border border-black w-80 p-2 mb-5 focus:outline-none' onChange={(e) => setSearchByTitle(e.target.value)} />
       <div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg'>
         {
-          filteredProducts.map((product) => (
-            <Card key={product.id} {...product} />
-          ))
+          categoryId ? 
+          (
+            filteredProducts.filter(product => product.category === categoryId).map((product) => (
+              <Card key={product.id} {...product} />
+            ))
+          )
+          :
+          (
+            filteredProducts?.map((product) => (
+              <Card key={product.id} {...product} />
+            ))
+          )
         }
       </div>
       <CardDetail />
