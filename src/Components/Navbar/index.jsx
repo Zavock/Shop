@@ -5,7 +5,7 @@ import {ShopContext} from '../../Context';
 
 const Navbar = () => {
   const activeStyle = 'underline underline-offset-4'
-  const {count, setSearchByCategory} = useContext(ShopContext)
+  const {count} = useContext(ShopContext)
   return (
     <nav className='bg-white flex justify-between items-center z-10 top-0 w-full py-5 shadow-md px-8 text-sm fixed'>
       <ul className='flex items-center gap-4'>
