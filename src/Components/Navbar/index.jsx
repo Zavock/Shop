@@ -10,32 +10,32 @@ const Navbar = () => {
     <nav className='bg-white flex justify-between items-center z-10 top-0 w-full py-5 shadow-md px-8 text-sm fixed'>
       <ul className='flex items-center gap-4'>
         <li className='font-semibold text-lg'>
-          <NavLink to='/' onClick={() => setSearchByCategory(null)}>
+          <NavLink to='/' >
             Shopi
           </NavLink>
         </li>
         <li>
-          <NavLink to='/' onClick={() => setSearchByCategory(null)} className={({ isActive }) => isActive ? activeStyle : undefined}>
+          <NavLink to='/' className={({ isActive }) => isActive ? activeStyle : undefined}>
             All
           </NavLink>
         </li>
         <li>
-          <NavLink to='/electronics' onClick={() => setSearchByCategory('electronics')} className={({ isActive }) => isActive ? activeStyle : undefined}>
+          <NavLink to='/electronics' className={({ isActive }) => isActive ? activeStyle : undefined}>
             Electronics
           </NavLink>
         </li>
         <li>
-          <NavLink to='/jewelery' onClick={() => setSearchByCategory('jewelery')} className={({ isActive }) => isActive ? activeStyle : undefined}>
+          <NavLink to='/jewelery' className={({ isActive }) => isActive ? activeStyle : undefined}>
             Jewelery
           </NavLink>
         </li>
         <li>
-          <NavLink to='/mens-clothing' onClick={() => setSearchByCategory("men's clothing")} className={({ isActive }) => isActive ? activeStyle : undefined}>
+          <NavLink to='/mens-clothing' className={({ isActive }) => isActive ? activeStyle : undefined}>
             Men's clothing
           </NavLink>
         </li>
         <li>
-          <NavLink to='/womens-clothing' onClick={() => setSearchByCategory("women's clothing")} className={({ isActive }) => isActive ? activeStyle : undefined}>
+          <NavLink to='/womens-clothing' className={({ isActive }) => isActive ? activeStyle : undefined}>
             Women's clothing
           </NavLink>
         </li>
