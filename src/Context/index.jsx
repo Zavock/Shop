@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 const ShopContext = createContext();
 
@@ -23,6 +23,33 @@ const ShopProvider = ({children}) => {
   //State of orders
   const [order, setOrder] = useState([]);
 
+  //State of products
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  //Get products by title
+  const [searchByTitle, setSearchByTitle] = useState('');
+
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then(res=>res.json())
+      .then((data)=>{
+        setProducts(data)
+      })
+  }, []);
+
+  const filteredProductsByTitle = (products, searchByTitle) => {
+    return products?.filter(product => product.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+  }
+
+  useEffect(() => {
+    if (searchByTitle.length > 0) {
+      setFilteredProducts(filteredProductsByTitle(products, searchByTitle));
+    } else {
+      setFilteredProducts(products);
+    }
+  }, [products, searchByTitle]);
+
   return (
     <ShopContext.Provider value={{
       count,
@@ -38,7 +65,12 @@ const ShopProvider = ({children}) => {
       setShopCart,
       shopCart,
       order,
-      setOrder
+      setOrder,
+      products,
+      setProducts,
+      searchByTitle,
+      setSearchByTitle,
+      filteredProducts
     }}>
       {children}
     </ShopContext.Provider>

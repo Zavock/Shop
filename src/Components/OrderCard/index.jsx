@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 const OrderCard = ({ image, title, price, id, quantity, handleChandeDelete }) => {
   return (
