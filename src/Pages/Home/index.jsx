@@ -29,6 +29,20 @@ const Home = () => {
               <Card key={product.id} {...product} />
             ))
           )
+          
+        }
+
+        {
+          categoryId.includes("clothing") ?
+          (
+            filteredProducts.filter(product => product.category.includes("clothing")).map((product) => (
+              <Card key={product.id} {...product} />
+            ))
+          )
+          :
+          (
+            null
+          )
         }
       </div>
       <CardDetail />

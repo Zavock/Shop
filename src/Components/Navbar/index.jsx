@@ -30,13 +30,8 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/mens-clothing' className={({ isActive }) => isActive ? activeStyle : undefined}>
-            Men's clothing
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/womens-clothing' className={({ isActive }) => isActive ? activeStyle : undefined}>
-            Women's clothing
+          <NavLink to="/clothing" className={({ isActive }) => isActive ? activeStyle : undefined}>
+            Clothing
           </NavLink>
         </li>
       </ul>
