@@ -7,7 +7,7 @@ import SideBar from '../SideBar';
 const Navbar = () => {
   const {count, openCheckoutDetail, openSideBar, setOpenSideBar} = useContext(ShopContext)
   return (
-    <nav className='bg-white flex justify-between z-10 top-0 w-full py-5 shadow-md px-5 text-sm fixed'>
+    <nav className='bg-white flex justify-between z-10 top-0 w-full py-5 shadow-md px-5 text-sm fixed animate-slide-down'>
       <ul className='flex gap-6 justify-center'>
         <li >
           <button onClick={() => setOpenSideBar(true)} className='rounded-full border shadow-md p-1'>
