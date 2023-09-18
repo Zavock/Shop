@@ -32,7 +32,7 @@ const CheckoutDetail = () => {
   }
 
   return (
-    <aside className={`${isCheckoutDetailOpen ? 'flex' : 'hidden'} flex-col top-[68px] shadow-2xl overflow-auto fixed right-0 border bg-white rounded-lg w-[360px] h-[calc(100vh-68px)] z-10`}>
+    <div className={`${isCheckoutDetailOpen ? 'flex' : 'hidden'} flex-col top-0 shadow-2xl overflow-auto fixed right-0 border bg-white rounded-lg w-full min-h-screen z-10`}>
       <div className='flex justify-between items-center p-6'>
         <h2 className='font-medium text-xl'>My Order</h2>
         <button onClick={() => closeCheckoutDetail()} className='transition duration-300 hover:scale-125 hover:text-red-600'>
@@ -67,7 +67,7 @@ const CheckoutDetail = () => {
         </Link>
         
       </div>
-    </aside>
+    </div>
   );
 }
 
