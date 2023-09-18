@@ -5,13 +5,12 @@ import SideBar from '../SideBar';
 
 
 const Navbar = () => {
-  const activeStyle = 'underline underline-offset-4'
-  const {count, openCheckoutDetail} = useContext(ShopContext)
+  const {count, openCheckoutDetail, openSideBar, setOpenSideBar} = useContext(ShopContext)
   return (
     <nav className='bg-white flex justify-between z-10 top-0 w-full py-5 shadow-md px-5 text-sm fixed'>
       <ul className='flex gap-6 justify-center'>
         <li >
-          <button className='rounded-full border shadow-md p-1'>
+          <button onClick={() => setOpenSideBar(true)} className='rounded-full border shadow-md p-1'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
@@ -90,6 +89,16 @@ const Navbar = () => {
           </span>
         </li>
       </ul>
+      {
+        openSideBar ? 
+        (
+          <SideBar />
+        )
+        :
+        (
+          null
+        )
+      }
     </nav>
   );
 }

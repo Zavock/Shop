@@ -22,7 +22,6 @@ const Card = ({category, image, title, price, description, id}) => {
       setShopCart([...shopCart, productData])
     }
     setCount(count + 1)
-    openCheckoutDetail()
     closeProductDetail()
   }
 

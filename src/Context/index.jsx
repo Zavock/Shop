@@ -30,6 +30,8 @@ const ShopProvider = ({children}) => {
   //Get products by title
   const [searchByTitle, setSearchByTitle] = useState('');
 
+  const [openSideBar, setOpenSideBar] = useState(false);
+
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then(res=>res.json())
@@ -70,7 +72,9 @@ const ShopProvider = ({children}) => {
       setProducts,
       searchByTitle,
       setSearchByTitle,
-      filteredProducts
+      filteredProducts,
+      openSideBar,
+      setOpenSideBar
     }}>
       {children}
     </ShopContext.Provider>
