@@ -6,7 +6,7 @@ const CardDetail = () => {
   const {isProductDetailOpen, closeProductDetail, productToShow} = useContext(ShopContext);
 
   return (
-    <aside className={`${isProductDetailOpen ? 'flex' : 'hidden'} flex-col top-[68px] shadow-2xl fixed right-0 border bg-white border-black rounded-lg w-[360px] h-[calc(100vh-68px)] z-10`}>
+    <aside className={`${isProductDetailOpen ? 'flex' : 'hidden'} flex-col top-[68px] shadow-2xl fixed right-0 border bg-white rounded-lg w-[360px] h-[calc(100vh-68px)] z-10`}>
       <div className='flex justify-between items-center p-6'>
         <h2 className='font-medium text-xl'>Detail</h2>
         <button onClick={() => closeProductDetail()}>

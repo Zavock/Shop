@@ -32,10 +32,10 @@ const CheckoutDetail = () => {
   }
 
   return (
-    <aside className={`${isCheckoutDetailOpen ? 'flex' : 'hidden'} flex-col top-[68px] shadow-2xl overflow-auto fixed right-0 border bg-white border-black rounded-lg w-[360px] h-[calc(100vh-68px)] z-10`}>
+    <aside className={`${isCheckoutDetailOpen ? 'flex' : 'hidden'} flex-col top-[68px] shadow-2xl overflow-auto fixed right-0 border bg-white rounded-lg w-[360px] h-[calc(100vh-68px)] z-10`}>
       <div className='flex justify-between items-center p-6'>
         <h2 className='font-medium text-xl'>My Order</h2>
-        <button onClick={() => closeCheckoutDetail()}>
+        <button onClick={() => closeCheckoutDetail()} className='transition duration-300 hover:scale-125 hover:text-red-600'>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -43,9 +43,16 @@ const CheckoutDetail = () => {
       </div>
       <div className='flex flex-col px-3 gap-5 flex-1'>
         {
-          shopCart.map((product) => (
-            <OrderCard key={product.id} {...product} handleChandeDelete={handleChandeDelete}/>
-          ))
+          shopCart.length > 0 ?
+          (
+            shopCart.map((product) => (
+              <OrderCard key={product.id} {...product} handleChandeDelete={handleChandeDelete}/>
+            ))
+          )
+          :
+          (
+            <p className='font-semibold text-lg text-center'>There isn't products</p>
+          )
         }
       </div>
       <div className='px-3 mb-5 mt-2 items-center'>
