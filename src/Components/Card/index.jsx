@@ -26,7 +26,7 @@ const Card = ({category, image, title, price, description, id}) => {
   }
 
   return (
-    <div onClick={() => showProduct({category, image, title, price, description})} className='bg-white cursor-pointer w-56 h-72 rounded-lg border shadow-xl p-3'>
+    <div onClick={() => showProduct({category, image, title, price, description})} className='bg-white cursor-pointer w-56 h-72 rounded-lg border shadow-xl p-3 md:w-auto'>
       <figure className='relative mb-2 w-full h-4/5 border-b '>
         <span className='absolute bottom-0 left-0 bg-white/75 rounded-lg text-black text-sm shadow-lg m-2 px-3 py-0.5'>{category}</span>
         <img className='w-full h-full object-contain rounded-lg ' src={image} alt={category}></img>

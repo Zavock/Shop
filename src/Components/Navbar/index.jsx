@@ -8,7 +8,7 @@ const Navbar = () => {
   const {count, openCheckoutDetail, openSideBar, setOpenSideBar} = useContext(ShopContext)
   return (
     <nav className='bg-white flex justify-between z-10 top-0 w-full py-5 shadow-md px-5 text-sm fixed animate-slide-down'>
-      <ul className='flex gap-6 justify-center'>
+      <ul className='flex gap-6 justify-center lg:hidden'>
         <li >
           <button onClick={() => setOpenSideBar(true)} className='rounded-full border shadow-md p-1'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
@@ -77,7 +77,7 @@ const Navbar = () => {
           </span>
         </li> */}
       </ul>
-      <ul className='flex gap-6 justify-center'>
+      <ul className='flex gap-6 justify-center lg:hidden'>
         <li className='flex items-center relative gap-1'>
           <button onClick={() => openCheckoutDetail()}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
