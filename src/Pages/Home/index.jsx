@@ -11,7 +11,7 @@ const Home = () => {
   
   return (
     <Layout>
-      <div className='mb-2'>
+      <div className='mb-2 mt-3'>
         <h1 className='font-bold text-xl'>Our Products</h1> 
       </div>
       <input type='text' placeholder='Search product' className='rounded-lg border border-black w-80 p-2 mb-5 focus:outline-none' onChange={(e) => setSearchByTitle(e.target.value)} />

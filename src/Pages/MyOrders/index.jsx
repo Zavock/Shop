@@ -8,11 +8,11 @@ const MyOrders = () => {
   const {order} = useContext(ShopContext);
   return (
     <Layout>
-      <div className='mb-2'>
-        <h1>My Orders</h1> 
+      <div className='mb-2 text-center mt-3'>
+        <h1 className='text-lg font-semibold '>My Orders</h1> 
       </div>
       
-      <div className='flex flex-col gap-3'>
+      <div className='flex flex-col gap-3 mt-2 w-[23rem]'>
         {
           order.map((orders, index) => (
             <Link key={index} to={`/my-orders/${index}`}>

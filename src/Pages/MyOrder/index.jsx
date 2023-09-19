@@ -11,7 +11,7 @@ const MyOrder = () => {
 
   return (
     <Layout>
-      <div className='flex items-center relative w-80 justify-center'>
+      <div className='flex items-center relative w-96 justify-center mt-3'>
         <Link to='/my-orders'>
           <button className='absolute left-0 bottom-0'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -19,10 +19,10 @@ const MyOrder = () => {
             </svg>
           </button>
         </Link>
-        <h1>My Order</h1>
+        <h1 className='text-lg font-semibold'>My Order</h1>
       </div>
       
-      <div className='flex flex-col px-3 gap-5 flex-1 w-[31rem] mt-3'>
+      <div className='flex flex-col px-3 gap-5 flex-1 w-[25rem] mt-4'>
         {
           orderId === 'last' ?
           (
