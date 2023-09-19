@@ -6,8 +6,10 @@ import SideBar from '../SideBar';
 
 const Navbar = () => {
   const {count, openCheckoutDetail, openSideBar, setOpenSideBar} = useContext(ShopContext)
+  const activeStyle = 'underline underline-offset-2'
   return (
-    <nav className='bg-white flex justify-between z-10 top-0 w-full py-5 shadow-md px-5 text-sm fixed animate-slide-down'>
+    <nav className='bg-white flex justify-between z-10 top-0 w-full py-5 shadow-md px-5 text-sm fixed animate-slide-down lg:py-3'>
+    {/* Nav movil */}
       <ul className='flex gap-6 justify-center lg:hidden'>
         <li >
           <button onClick={() => setOpenSideBar(true)} className='rounded-full border shadow-md p-1'>
@@ -21,7 +23,33 @@ const Navbar = () => {
             Shopi
           </NavLink>
         </li>
-        {/* <li className='font-semibold text-lg'>
+      </ul>
+      <ul className='flex gap-6 justify-center lg:hidden'>
+        <li className='flex items-center relative gap-1'>
+          <button onClick={() => openCheckoutDetail()}>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+            </svg>
+          </button>
+          <span className='absolute bottom-5 left-6 bg-black text-xs rounded-full px-1 text-white '>
+            {count}
+          </span>
+        </li>
+      </ul>
+      {
+        openSideBar ? 
+        (
+          <SideBar />
+        )
+        :
+        (
+          null
+        )
+      }
+
+      {/* Nav desktop */}
+      <ul className='hidden lg:flex items-center gap-4'>
+        <li className='font-semibold text-xl bg-black text-white px-4 py-1 rounded-lg'>
           <NavLink to='/' >
             Shopi
           </NavLink>
@@ -47,7 +75,7 @@ const Navbar = () => {
           </NavLink>
         </li>
       </ul>
-      <ul className='flex items-center gap-4'>
+      <ul className='hidden lg:flex items-center gap-4'>
         <li className='text-black/60'>
           zule@hotmail.com
         </li>
@@ -75,30 +103,8 @@ const Navbar = () => {
           <span className='absolute bottom-3 left-3 bg-black text-xs rounded-full px-1 text-white '>
             {count}
           </span>
-        </li> */}
-      </ul>
-      <ul className='flex gap-6 justify-center lg:hidden'>
-        <li className='flex items-center relative gap-1'>
-          <button onClick={() => openCheckoutDetail()}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-            </svg>
-          </button>
-          <span className='absolute bottom-5 left-6 bg-black text-xs rounded-full px-1 text-white '>
-            {count}
-          </span>
         </li>
       </ul>
-      {
-        openSideBar ? 
-        (
-          <SideBar />
-        )
-        :
-        (
-          null
-        )
-      }
     </nav>
   );
 }
