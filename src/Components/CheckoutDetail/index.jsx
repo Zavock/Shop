@@ -32,9 +32,9 @@ const CheckoutDetail = () => {
   }
 
   return (
-    <div className={`${isCheckoutDetailOpen ? 'flex' : 'hidden'} flex-col top-0 shadow-2xl overflow-auto fixed right-0 border bg-white rounded-lg w-full min-h-screen z-10`}>
+    <div className={`${isCheckoutDetailOpen ? 'flex' : 'hidden'} flex-col top-0 lg:top-[68px] shadow-2xl overflow-auto fixed right-0 border lg:border-black bg-white rounded-lg w-full lg:w-[360px] min-h-screen lg:min-h-0 lg:h-[calc(100vh-68px)] z-10`}>
       <div className='flex justify-between items-center p-6'>
-        <h2 className='font-medium text-2xl'>My Order</h2>
+        <h2 className='font-medium text-2xl lg:text-xl'>My Order</h2>
         <button onClick={() => closeCheckoutDetail()} className='transition duration-300 hover:scale-125 hover:text-red-600'>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
