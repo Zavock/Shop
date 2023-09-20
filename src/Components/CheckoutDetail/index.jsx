@@ -32,7 +32,7 @@ const CheckoutDetail = () => {
   }
 
   return (
-    <div className={`${isCheckoutDetailOpen ? 'flex' : 'hidden'} flex-col top-0 lg:top-[68px] shadow-2xl overflow-auto fixed right-0 border lg:border-black bg-white rounded-lg w-full lg:w-[360px] min-h-screen lg:min-h-0 lg:h-[calc(100vh-68px)] z-10`}>
+    <div className={`${isCheckoutDetailOpen ? 'flex' : 'hidden'} flex-col top-0 lg:top-[68px] md:top-[80px] shadow-2xl overflow-auto fixed right-0 border lg:border-black md:border-black bg-white rounded-lg w-full lg:w-[360px] md:w-[380px] min-h-screen lg:min-h-0 md:min-h-0 lg:h-[calc(100vh-80px)] md:h-[calc(100vh-68px)] z-10`}>
       <div className='flex justify-between items-center p-6'>
         <h2 className='font-medium text-2xl lg:text-xl'>My Order</h2>
         <button onClick={() => closeCheckoutDetail()} className='transition duration-300 hover:scale-125 hover:text-red-600'>

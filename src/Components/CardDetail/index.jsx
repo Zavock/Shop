@@ -6,9 +6,9 @@ const CardDetail = () => {
   const {isProductDetailOpen, closeProductDetail, productToShow} = useContext(ShopContext);
 
   return (
-    <aside className={`${isProductDetailOpen ? 'flex' : 'hidden'} flex-col top-0 lg:top-[68px] shadow-2xl fixed right-0 border lg:border-black bg-white rounded-lg w-full lg:w-[360px] min-h-screen lg:min-h-0 lg:h-[calc(100vh-68px)] z-10`}>
+    <aside className={`${isProductDetailOpen ? 'flex' : 'hidden'} flex-col top-0 lg:top-[68px] md:top-[80px] shadow-2xl fixed right-0 border lg:border-black md:border-black bg-white rounded-lg w-full lg:w-[360px] md:w-[380px] min-h-screen lg:min-h-0 md:min-h-0 lg:h-[calc(100vh-68px)] md:h-[calc(100vh-68px)] z-10`}>
       <div className='flex justify-between items-center p-6'>
-        <h2 className='font-medium text-xl'>Detail</h2>
+        <h2 className='font-medium text-xl md:text-2xl'>Detail</h2>
         <button onClick={() => closeProductDetail()} className='transition duration-300 hover:scale-125 hover:text-red-600'>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />

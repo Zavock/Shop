@@ -6,7 +6,7 @@ const SideBar = () => {
   const activeStyle = 'bg-black text-white p-5 rounded-lg transition duration-300'
   const {setOpenSideBar} = useContext(ShopContext)
   return (
-    <div className='bg-gray-100 min-h-screen w-full fixed p-4 top-0 left-0 right-0 flex flex-col items-center gap-5'>
+    <div className='bg-gray-100 md:bg-white min-h-screen md:border md:border-black md:rounded-xl w-full md:w-[380px] fixed p-4 top-0 md:top-[80px] left-0 right-0 flex flex-col items-center gap-5'>
       <div className='flex items-center relative border-b pb-3 border-b-black w-full justify-center'>
         <span className='text-2xl text-center font-semibold bg-black text-white rounded-lg py-3 px-20'>Shopi</span>
         <button onClick={() => setOpenSideBar(false)} className='absolute right-0'>
