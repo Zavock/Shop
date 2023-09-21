@@ -35,6 +35,12 @@ const SideBar = () => {
           Clothing
         </NavLink>
       </div>
+      <hr className='border border-black w-full'/>
+      <div onClick={() => setOpenSideBar(false)} className='text-lg font-medium border border-black w-full text-center p-2 rounded-lg'>
+        <NavLink to="/my-orders" className={({ isActive }) => isActive ? activeStyle : undefined}>
+          My Orders
+        </NavLink>
+      </div>
     </div>  
   );
 }
