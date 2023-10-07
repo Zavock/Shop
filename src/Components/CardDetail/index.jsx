@@ -1,9 +1,9 @@
-import React, {useContext} from 'react';
-import {ShopContext} from '../../Context';
+import { useContext } from 'react';
+import { ShopContext } from '../../Context';
 
 const CardDetail = () => {
 
-  const {isProductDetailOpen, closeProductDetail, productToShow} = useContext(ShopContext);
+  const { isProductDetailOpen, closeProductDetail, productToShow } = useContext(ShopContext);
 
   return (
     <aside className={`${isProductDetailOpen ? 'flex' : 'hidden'} flex-col top-0 lg:top-[68px] md:top-[80px] shadow-2xl fixed right-0 border lg:border-black md:border-black bg-white rounded-lg w-full lg:w-[360px] md:w-[380px] min-h-screen lg:min-h-0 md:min-h-0 lg:h-[calc(100vh-68px)] md:h-[calc(100vh-68px)] z-10`}>
@@ -27,7 +27,7 @@ const CardDetail = () => {
 
 
   );
-  
+
 }
 
 export default CardDetail;

@@ -1,30 +1,32 @@
-import React, {useContext} from 'react';
-import {ShopContext} from '../../Context';
+import { useContext } from 'react';
+import { ShopContext } from '../../Context';
 import OrderCard from '../OrderCard';
 import { sumTotalPrice } from '../../Utils';
 import { Link } from 'react-router-dom';
 
 const CheckoutDetail = () => {
-  const {isCheckoutDetailOpen, closeCheckoutDetail, setShopCart, shopCart, setOrder, order, setCount, count} = useContext(ShopContext);
+  const { isCheckoutDetailOpen, closeCheckoutDetail, setShopCart, shopCart, setOrder, order, setCount, count } = useContext(ShopContext);
   const handleChandeDelete = (id, quantity) => {
     const filteredProducts = shopCart.filter(product => product.id != id)
     const filterQuantity = shopCart.filter(product => product.quantity > 1)
     setShopCart(filteredProducts)
     if (filterQuantity) {
       setCount(count - quantity)
-    }else {
+    } else {
       setCount(count - 1)
     }
   }
 
   const handleCheckout = () => {
+    const quantityTotal = shopCart.map(item => item.quantity).reduce((acc, item) => acc + item)
     const orderToAdd = {
       date: new Date().toLocaleDateString(),
       products: shopCart,
-      totalProducts: shopCart.length,
+      totalProducts: quantityTotal,
       totalPrice: Math.trunc(sumTotalPrice(shopCart))
     }
 
+    console.log(quantityTotal);
     setOrder([...order, orderToAdd])
     setShopCart([])
     setCount(0)
@@ -44,19 +46,19 @@ const CheckoutDetail = () => {
       <div className='flex flex-col px-3 gap-5 flex-1'>
         {
           shopCart.length > 0 ?
-          (
-            shopCart.map((product) => (
-              <OrderCard key={product.id} {...product} handleChandeDelete={handleChandeDelete}/>
-            ))
-          )
-          :
-          (
-            <p className='font-semibold text-lg text-center'>There isn't products</p>
-          )
+            (
+              shopCart.map((product) => (
+                <OrderCard key={product.id} {...product} handleChandeDelete={handleChandeDelete} />
+              ))
+            )
+            :
+            (
+              <p className='font-semibold text-lg text-center'>There isnt products</p>
+            )
         }
       </div>
-        {
-          shopCart.length > 0 ?
+      {
+        shopCart.length > 0 ?
           (
             <div className='px-3 mb-5 mt-2 items-center'>
               <p className='flex justify-between mb-2'>
@@ -74,7 +76,7 @@ const CheckoutDetail = () => {
           (
             null
           )
-        }
+      }
     </div>
   );
 }

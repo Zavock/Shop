@@ -1,15 +1,15 @@
-import React, {useContext} from 'react';
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import {ShopContext} from '../../Context';
+import { ShopContext } from '../../Context';
 import SideBar from '../SideBar';
 
 
 const Navbar = () => {
-  const {count, openCheckoutDetail, openSideBar, setOpenSideBar} = useContext(ShopContext)
+  const { count, openCheckoutDetail, openSideBar, setOpenSideBar } = useContext(ShopContext)
   const activeStyle = 'underline underline-offset-2'
   return (
     <nav className='bg-white flex justify-between z-10 top-0 w-full py-5 shadow-md px-5 text-sm fixed animate-slide-down lg:py-3'>
-    {/* Nav movil */}
+      {/* Nav movil */}
       <ul className='flex gap-6 justify-center lg:hidden'>
         <li >
           <button onClick={() => setOpenSideBar(true)} className='rounded-full border shadow-md p-1'>
@@ -37,14 +37,14 @@ const Navbar = () => {
         </li>
       </ul>
       {
-        openSideBar ? 
-        (
-          <SideBar />
-        )
-        :
-        (
-          null
-        )
+        openSideBar ?
+          (
+            <SideBar />
+          )
+          :
+          (
+            null
+          )
       }
 
       {/* Nav desktop */}
@@ -76,9 +76,6 @@ const Navbar = () => {
         </li>
       </ul>
       <ul className='hidden lg:flex items-center gap-4'>
-        <li className='text-black/60'>
-          zule@hotmail.com
-        </li>
         <li>
           <NavLink to='/my-orders' className={({ isActive }) => isActive ? activeStyle : undefined}>
             My Orders

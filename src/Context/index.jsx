@@ -1,8 +1,9 @@
-import React, { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 const ShopContext = createContext();
 
-const ShopProvider = ({children}) => {
+// eslint-disable-next-line react/prop-types
+const ShopProvider = ({ children }) => {
   //State of cart
   const [count, setCount] = useState(0);
   const [shopCart, setShopCart] = useState([]);
@@ -34,8 +35,8 @@ const ShopProvider = ({children}) => {
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
-      .then(res=>res.json())
-      .then((data)=>{
+      .then(res => res.json())
+      .then((data) => {
         setProducts(data)
       })
   }, []);
@@ -81,4 +82,4 @@ const ShopProvider = ({children}) => {
   );
 }
 
-export {ShopProvider, ShopContext};
+export { ShopProvider, ShopContext };

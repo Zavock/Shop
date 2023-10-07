@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
+import { useContext } from 'react';
 import Layout from '../../Components/Layout';
 import { Link } from 'react-router-dom';
 import OrderCard from '../../Components/OrderCard';
-import {ShopContext} from '../../Context';
+import { ShopContext } from '../../Context';
 
 const MyOrder = () => {
-  const {order} = useContext(ShopContext);
+  const { order } = useContext(ShopContext);
   const pathSplitted = window.location.pathname.split('/');
   const orderId = pathSplitted[pathSplitted.length - 1];
 
@@ -21,21 +21,21 @@ const MyOrder = () => {
         </Link>
         <h1 className='text-lg font-semibold'>My Order</h1>
       </div>
-      
+
       <div className='flex flex-col px-3 gap-5 flex-1 w-[25rem] mt-4'>
         {
           orderId === 'last' ?
-          (
-            order?.slice(-1)[0].products.map((product) => (
-              <OrderCard key={product.id} {...product} />
-            ))
-          )
-          :
-          (
-            order?.[orderId]?.products.map((product) => (
-              <OrderCard key={product.id} {...product} />
-            ))
-          )
+            (
+              order?.slice(-1)[0].products.map((product) => (
+                <OrderCard key={product.id} {...product} />
+              ))
+            )
+            :
+            (
+              order?.[orderId]?.products.map((product) => (
+                <OrderCard key={product.id} {...product} />
+              ))
+            )
         }
       </div>
     </Layout>

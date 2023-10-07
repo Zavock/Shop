@@ -1,5 +1,4 @@
-import React from 'react';
-
+// eslint-disable-next-line react/prop-types
 const OrdersCard = ({ totalPrice, totalProducts, date }) => {
   return (
     <div className='flex justify-between gap-2 rounded-lg border border-black  p-2 shadow-md'>
