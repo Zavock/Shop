@@ -3,7 +3,7 @@ const OrderCard = ({ image, title, price, id, quantity, handleChandeDelete }) =>
   return (
     <div className='flex justify-between rounded-lg border border-black p-2 shadow-md transition duration-300 hover:-translate-y-1'>
       <div className='flex items-center justify-center gap-3'>
-        <figure className='h-20 w-20'>
+        <figure className="w-20 h-20">
           <img className='w-full h-full object-contain' src={image} alt='' />
         </figure>
         <div className='flex flex-col gap-2'>
